@@ -3,8 +3,6 @@ package com.bridgelabz;
 import java.util.Scanner;
 
 public class workshop {
-    public class TicTacToe {
-
         public static void createEmptyBoard() {
             char[] board = new char[10];
             for (int a = 1; a < board.length; a++) {
