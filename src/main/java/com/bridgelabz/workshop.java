@@ -2,8 +2,8 @@ package com.bridgelabz;
 
 import java.util.Scanner;
 
-public class workshop {
-    public class TicTacToe {
+    public class workshop {
+        static char PLAYER , COMPUTER ;
 
         public static void createEmptyBoard() {
             char[] board = new char[10];
@@ -11,29 +11,44 @@ public class workshop {
                 board[a] = ' ';
             }
         }
-        static char player,computer;
-        public  static char playerChoose(char CHOOSE_LETTER)
-        {
-            if(CHOOSE_LETTER == 'o'){
-                player ='o';
-                computer = 'x';
+
+        public static char playerChoose(char CHOOSE_LETTER) {
+            if (CHOOSE_LETTER == 'O') {
+                PLAYER = 'O';
+                COMPUTER = 'X';
+            } else if (CHOOSE_LETTER == 'X') {
+                PLAYER = 'X';
+                COMPUTER = 'O';
+            } else {
+                System.out.println("Enter invalid character");
             }
-            else if(CHOOSE_LETTER == 'x'){
-                player ='x';
-                computer = 'o';
+            return PLAYER;
+
         }
-            else {
-                System.out.println("enter valid character");
+        static void  ShowBoard(){
+            char[][] showboard =
+                              {{' ','|',' ','|',' '},
+                               {'-','+','-','+','-'},
+                               {' ','|',' ','|',' '},
+                               {'-','+','-','+','-'},
+                               {' ','|',' ','|',' '}};
+            for (char[] row : showboard){
+                for ( char c :row){
+                    System.out.print(c);
+                }
+                System.out.println();
             }
-            return player;
         }
+
         public static void main(String[] args) {
-            System.out.println("Welcome to TIC-TAC-TOE BOARD");
+            System.out.println("Welcome Tic Tac Toe game");
+            ShowBoard();
             createEmptyBoard();
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Choose a letter x or o");
-            char CHOOSE_LETTER = scanner.next().charAt('o');
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Choose a letter X or O :: ");
+            char CHOOSE_LETTER = sc.next().charAt(0);
             playerChoose(CHOOSE_LETTER);
+            sc.close();
         }
     }
-}
+
